@@ -1,0 +1,15 @@
+- name: Install System Packages 1 (build-essential, cmake, pkg-config, pthread)
+  become: true
+  action: >
+    {{ ansible_pkg_mgr }} name=cmake
+  tags:
+    - install
+    - core
+
+- name: Install System Packages 2 (lua, unzip, libtool, libtool-bin, gettext)
+  become: true
+  action: >
+    {{ ansible_pkg_mgr }} name=
+  tags:
+    - install
+    - core
