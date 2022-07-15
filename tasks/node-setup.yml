@@ -1,7 +1,6 @@
-- name: Install nodejs and npm
-  become: true
+- name: Install node and npm
   action: >
-    {{ ansible_pkg_mgr }} name=nodejs,npm
+    {{ ansible_pkg_mgr }} name=node,npm
   tags:
     - install
     - node
@@ -15,6 +14,7 @@
     - node
 
 - name: Install correct version of Node
+  become: true
   shell: n 14
   tags:
     - install
