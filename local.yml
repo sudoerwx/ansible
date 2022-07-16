@@ -4,11 +4,11 @@
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
     personal: "{{ lookup('env', 'HOME') }}/personal"
   tasks:
-    - include: tasks/ssh.yml
-    - include: tasks/git-setup.yml
-    - include: tasks/core-setup.yml
-    - include: tasks/node-setup.yml # mac - ok
-    - include: tasks/npm-packages.yml
-    - include: tasks/zsh-setup.yml
+    # - include: tasks/ssh.yml
+    - include: tasks/git-setup.yml # ubuntu - ok
+    - include: tasks/core-setup.yml # ubuntu -ok
+    - include: tasks/node-setup.yml # mac - ok (check with nodejs instead of node)  # ubuntu -ok
+    - include: tasks/npm-packages.yml # ubuntu -ok
+    # - include: tasks/zsh-setup.yml
     # - include: tasks/build-nvim.yml
-    - include: tasks/dotfiles.yml
+    # - include: tasks/dotfiles.yml

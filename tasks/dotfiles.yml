@@ -1,6 +1,8 @@
 - name: Installing stow
-  action: >
-    {{ ansible_pkg_mgr }} name=stow
+  package:
+    name:
+      - stow
+    state: present
   tags:
     - install
     - dotfiles

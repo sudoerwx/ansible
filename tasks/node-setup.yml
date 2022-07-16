@@ -1,6 +1,9 @@
 - name: Install node and npm
-  action: >
-    {{ ansible_pkg_mgr }} name=node,npm
+  package:
+    name:
+      - nodejs
+      - npm
+    state: present
   tags:
     - install
     - node
