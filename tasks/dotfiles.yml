@@ -23,7 +23,7 @@
     - stow
 
 - name: Stow dotfiles
-  shell: cd $HOME/.dotfiles && ./init
+  shell: cd $HOME/.dotfiles && zsh init
   tags:
     - install
     - dotfiles

@@ -11,6 +11,35 @@
   shell: chsh -s $(which zsh)
   tags: *tags_for_zsh_tasks
 
-- name: Oh-My-Zsh
-  shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh > ~/.oh-my-installer && chmod +x ~/.oh-my-installer && ~/.oh-my-installer
+- name: Delete existing ~/.oh-my-zsh
+  file:
+    path: "~/.oh-my-zsh"
+    state: absent
   tags: *tags_for_zsh_tasks
+
+- name: Delete existing ~/.zshrc.pre-oh-my-zsh 
+  file:
+    path: "~/.zshrc"
+    state: absent
+  tags: *tags_for_zsh_tasks
+
+- name: Oh-My-Zsh
+  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"   
+  tags: *tags_for_zsh_tasks
+
+- name: Backup ~/.zshrc
+  copy:
+    src: "~/.zshrc"
+    dest: "~/.zshrc.initbackup"
+    force: true
+  tags: *tags_for_zsh_tasks
+
+
+- name: Delete ~/.zshrc 
+  file:
+    path: "~/.zshrc"
+    state: absent
+  tags: *tags_for_zsh_tasks
+
+
+
