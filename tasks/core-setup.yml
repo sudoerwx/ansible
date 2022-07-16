@@ -1,6 +1,6 @@
 - name: Install System Packages
   action: >
-    {{ ansible_pkg_mgr }} name=cmake,fzf,thefuck,brave-browser
+    {{ ansible_pkg_mgr }} name=cmake,fzf,thefuck,kitty,brave-browser
   tags:
     - install
     - core
