@@ -1,11 +1,13 @@
 - name: Install ZSH
+  become: "{{ ansible_os_family != 'Darwin' }}"
   package:
     name:
       - zsh
     state: present
-  tags: &tags_for_zsh_tasks ["install", "productivity", "dotfiles", "zsh"]
+  tags: &tags_for_zsh_tasks ["install", "dotfiles", "zsh"]
 
 - name: Change shell to zsh
+  become: true
   shell: chsh -s $(which zsh)
   tags: *tags_for_zsh_tasks
 

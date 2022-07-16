@@ -1,4 +1,5 @@
 - name: Installing stow
+  become: "{{ ansible_os_family != 'Darwin' }}"
   package:
     name:
       - stow
@@ -7,6 +8,7 @@
     - install
     - dotfiles
     - stow
+
 - name: Cloning .dotfiles
   ansible.builtin.git:
     repo: "git@github.com:sudoerwx/.dotfiles.git"
@@ -19,6 +21,7 @@
     - install
     - dotfiles
     - stow
+
 - name: Stow dotfiles
   shell: cd $HOME/.dotfiles && ./init
   tags:

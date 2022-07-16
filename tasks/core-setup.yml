@@ -1,4 +1,5 @@
-- name: Install System Packages
+- name: Install General Packages
+  become: "{{ ansible_os_family != 'Darwin' }}" 
   package:
     name:
       - cmake
@@ -6,8 +7,34 @@
       - thefuck
       - kitty
       - tmux
-      # -brave-browser
+      - ripgrep
+      - curl
     state: present
   tags:
     - install
     - core
+
+- name: Install Packages for ubuntu system
+  become: true
+  package:
+    name:
+      - python3-pip
+      - libc6
+      - build-essential
+      - libssl-dev
+    state: present
+  tags:
+    - install
+    - core
+  when: ansible_distribution == "Ubuntu"
+
+# - name: Install Packages for MacOSX system
+#   package:
+#     name:
+#       - python3
+#     state: present
+#   tags:
+#     - install
+#     - core
+#   when: ansible_distribution == "MacOSX"
+

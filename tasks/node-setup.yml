@@ -1,4 +1,5 @@
 - name: Install node and npm
+  become: "{{ ansible_os_family != 'Darwin' }}"
   package:
     name:
       - nodejs
