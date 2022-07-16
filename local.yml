@@ -7,9 +7,9 @@
     # - include: tasks/ssh.yml
     - include: tasks/git-setup.yml # ubuntu - ok
     - include: tasks/core-setup.yml # ubuntu -ok
-    - include: tasks/brave-browser.yml
+    - include: tasks/brave-browser.yml # ubuntu -ok
     - include: tasks/node-setup.yml # mac - ok (check with nodejs instead of node)  # ubuntu -ok
     - include: tasks/npm-packages.yml # ubuntu -ok
     - include: tasks/zsh-setup.yml # ubuntu -ok
     # - include: tasks/build-nvim.yml
-    # - include: tasks/dotfiles.yml
+    - include: tasks/dotfiles.yml # ubuntu -ok
