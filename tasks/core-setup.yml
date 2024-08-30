@@ -28,13 +28,13 @@
     - core
   when: ansible_distribution == "Ubuntu"
 
-# - name: Install Packages for MacOSX system
-#   package:
-#     name:
-#       - python3
-#     state: present
-#   tags:
-#     - install
-#     - core
-#   when: ansible_distribution == "MacOSX"
+- name: Install Packages for MacOSX system
+  package:
+    name:
+      - neovim
+    state: present
+  tags:
+    - install
+    - core
+  when: ansible_distribution == "MacOSX"
 

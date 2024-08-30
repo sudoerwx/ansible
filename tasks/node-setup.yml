@@ -19,7 +19,7 @@
 
 - name: Install correct version of Node
   become: true
-  shell: n 14
+  shell: n 19
   tags:
     - install
     - node

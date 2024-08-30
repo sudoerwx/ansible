@@ -19,6 +19,14 @@
   tags:
     - install
     - node
+- name: Install prettier
+  npm:
+    name: prettier
+    global: yes
+  tags:
+    - install
+    - node
+
 # - name: Install TS-Node
 #   npm:
 #     name: ts-node
